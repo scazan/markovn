@@ -15,7 +15,7 @@ const MarkovN = require('markovn');
 ```
 Passing in the source/reference to analyze, and the order:
 ```
-const markovChain = new markovn([1,2,3,2,1], 2); 
+const markovChain = new MarkovN([1,2,3,2,1], 2); 
 ```
 
 Call .asPattern() with an initial state to get a generator function that can yield:
@@ -45,7 +45,7 @@ const MarkovN = require('markovn');
 ```
 Passing in the source/reference to analyze, the order:
 ```
-const markovChain = new markovn([1,2,3,2,1], 2);
+const markovChain = new MarkovN([1,2,3,2,1], 2);
 ```
 Now get the next state by passing in the current state manually:
 
