@@ -3,11 +3,11 @@
 A Markov Chain library for Nth-order markov chains which also supports generators/streams.
 
 
-This library provides two ways of getting at the data.
+This library provides two ways of getting at the data. Both methods assume that the source/reference to analyze can be looped.
 
 ### As a stream that handles state automatically
 
-Starting with the easiest way, you can import the library, pass it a reference set of items, and the order of the markov chaine, then use it as a generator function to get results:
+Starting with the easiest way, you can import the library, pass it a source/reference set of items, and the order of the markov chaine, then use it as a generator function to get results:
 
 ```
 const MarkovN = require('markovn');
@@ -56,7 +56,7 @@ The disadvantage, of course, is that you will need to take the result and modify
 ```
 markovChain.getNextState([2,3,2]); // Returns 1
 markovChain.getNextState([3,2,1]); // Returns 1
-markovChain.getNextState([2,1,2]); // and so on...
+markovChain.getNextState([2,1,1]); // and so on...
 ```
 
 ### More examples forthcoming
