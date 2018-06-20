@@ -100,22 +100,18 @@ class Markov {
     return this.dictionary[nextIndex];
   }
 
-  asPattern() {
-    let self = this;
+  * asPattern(initialState) {
+    this.lastState = initialState;
 
-    return function* asPattern(initialState) {
-      self.lastState = initialState;
+    while(true) {
+      let nextState: number = this.getNextState(this.lastState);
+      this.lastState = addToBuffer(this.lastState, nextState);
 
-      while(true) {
-        let nextState: number = self.getNextState(self.lastState);
-        self.lastState = addToBuffer(self.lastState, nextState);
-
-        yield nextState;
-      }
-    };
+      yield nextState;
+    }
   }
 
 };
 
-export default { Markov };
-
+export { Markov };
+export default Markov;
