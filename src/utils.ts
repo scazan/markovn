@@ -71,6 +71,7 @@ export const normalize = (coll: number[]): number[] => {
   return collSum > 0 ? coll.map( (weight) => weight / collSum) : coll.map(() => 0);
 };
 
+// http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
 export const isEquivalent = (a, b): boolean => {
   // Create arrays of property names
   var aProps = Object.getOwnPropertyNames(a);
