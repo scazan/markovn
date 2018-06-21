@@ -16,7 +16,7 @@ const MarkovN = require('markovn');
 ```
 Passing in the source/reference to analyze, and the order:
 ```
-const markovChain = new MarkovN([1,2,3,2,1], 2); 
+const markovChain = new MarkovN([1,2,3,2,1], 2);
 ```
 
 Call .asPattern() with an initial state to get a generator function that can yield:
@@ -39,6 +39,7 @@ pattern.next().value; // Returns 1
 pattern.next().value; // Returns 1
 pattern.next().value; // Returns 2
 pattern.next().value; // Returns 3 and so on...
+```
 
 ### As a more bare bones system that does not handle state automatically
 
@@ -63,5 +64,13 @@ markovChain.getNextState([2,1,1]); // Returns 2
 markovChain.getNextState([1,1,2]); // Returns 3 and so on...
 ```
 
+### What about strings?
+
+Actually, we can feed the markov chain any sort of data type. Let's do a sentence:
+```
+const MarkovN = require('markovn');
+const markovChain = new MarkovN( 'dear casey your music is good dear casey and your music has lots of sounds which is good'.split(' '), 1);
+const pattern = markovChain.asPattern( 'dear casey'.split(' ') );
+```
 ### More examples including some musical examples forthcoming...
 
