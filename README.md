@@ -72,5 +72,26 @@ const MarkovN = require('markovn');
 const markovChain = new MarkovN( 'dear casey your music is good dear casey and your music has lots of sounds which is good'.split(' '), 1);
 const pattern = markovChain.asPattern( 'dear casey'.split(' ') );
 ```
-### More examples including some musical examples forthcoming...
+### A musical example
 
+Let's start with a simple segment of a melody. In this case we'll take [Popcorn](https://www.youtube.com/watch?v=qTUM8gFyLqo) as an example. We'll represent the melody as pitch classes (or as MIDI notes starting from 0=C0).
+
+```
+const MarkovN = require('markovn');
+
+const popcornMelody = [10, 9, 10, 5, 3, 5, -2, 10, 9, 10, 5, 3, 5, -2, 10, 12, 13, 12, 13, 12, 10, 12, 10, 12, 10, 9, 10, 5, 1, 5, -2];
+
+const markovChain = new MarkovN(popcornMelody, 2);
+const pattern = markovChain.asPattern([10,9,10]);
+
+// Now let's generate 30 notes from the sequence and console.log them!
+for(let i=0; i<30; i++) {
+  console.log(pattern.next().value);
+}
+
+// This gives us:
+// -2 10 12 13 12 13 12 13 12 13 12 13 12 13 12 13 12 10 12 10 9 10 5 3 5 -2 10 9 10 5
+// That's a markov generated melody. If you want to use the notes as MIDI pitches then take each note and add an offset to the desired octave
+// (ie. pitch = -2; pitch + (24*4); // That shifts it up by 4 octaves
+
+```
