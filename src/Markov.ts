@@ -24,7 +24,7 @@ const addToBuffer = (buffer: any[], value: any) => {
   return newBuffer;
 };
 
-class Markov {
+class MarkovN {
     dictionary: Array<number>;
     combinations: Array< Array<number> >;
     lastState: Array<number>;
@@ -113,5 +113,5 @@ class Markov {
 
 };
 
-export { Markov };
-export default Markov;
+export { MarkovN };
+export default MarkovN;

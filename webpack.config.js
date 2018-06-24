@@ -7,7 +7,7 @@ const clientConfig = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
-    library: "Markov",
+    library: "MarkovN",
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
@@ -31,7 +31,7 @@ const serverConfig = {
   output: {
     filename: 'index.node.js',
     path: path.resolve(__dirname, 'build'),
-    library: "Markov",
+    library: "MarkovN",
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
