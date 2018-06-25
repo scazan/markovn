@@ -16,6 +16,8 @@ Starting with the easiest way, you can import the library, pass it a source/refe
 
 ```
 const MarkovN = require('markovn');
+// Or if we are in Node
+const MarkovN = require('markovn').default;
 
 ```
 Passing in the source/reference to analyze, and the order:
