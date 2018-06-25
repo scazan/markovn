@@ -1,4 +1,4 @@
-
+//const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
 const clientConfig = {
@@ -9,7 +9,8 @@ const clientConfig = {
     path: path.resolve(__dirname, 'build'),
     library: "MarkovN",
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
+    globalObject: 'typeof self !== \'undefined\' ? self : this'
   },
   resolve: {
     extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
@@ -24,28 +25,4 @@ const clientConfig = {
   }
 };
 
-const serverConfig = {
-  watch: false,
-  entry: './src/Markov.ts',
-  target: 'node',
-  output: {
-    filename: 'index.node.js',
-    path: path.resolve(__dirname, 'build'),
-    library: "MarkovN",
-    libraryTarget: 'umd',
-    umdNamedDefine: true
-  },
-  resolve: {
-    extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
-  },
- module: {
-    rules: [
-      {
-      test: /\.ts?$/,
-      loader: 'awesome-typescript-loader'
-    }
-    ]
-  }
-};
-
-module.exports = [ clientConfig, serverConfig ];
+module.exports = clientConfig;

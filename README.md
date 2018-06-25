@@ -8,7 +8,7 @@ This library provides two ways of getting at the data. Both methods assume that 
 
 ### As a stream that handles state automatically
 
-Starting with the easiest way, you can import the library, pass it a source/reference set of items, and the order of the markov chaine, then use it as a generator function to get results:
+Starting with the easiest way, you can import the library, pass it a source/reference set of items, and the order of the markov chain, then use it as a generator function to get results:
 
 ```
 const MarkovN = require('markovn');
