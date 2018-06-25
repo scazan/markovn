@@ -32,10 +32,10 @@ const pattern = markovChain.asPattern([2,3,2]);
 ```
 Then simply call next continuously to get an object containing the next value:
 ```
-pattern.next(); // Returns 1
-pattern.next(); // Returns 1
-pattern.next(); // Returns 2
-pattern.next(); // Returns 3
+pattern.next(); // Returns {done: false, value: 1}
+pattern.next(); // Returns {done: false, value: 1}
+pattern.next(); // Returns {done: false, value: 2}
+pattern.next(); // Returns {done: false, value: 3}
 ```
 The word pattern, by the way, comes from it being modeled after the pattern library in [SuperCollider](https://supercollider.github.io/).
 
