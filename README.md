@@ -3,6 +3,10 @@
 A Markov Chain library for Nth-order markov chains which also supports generators/streams.
 This library differentiates itself primarily in that it does not expect that you are using strings as an input/output which makes it better suited for numerical applications or musical applications where one expects to be using frequencies or MIDI values.
 
+### Install
+```
+npm install markovn
+```
 
 This library provides two ways of getting at the data. Both methods assume that the source/reference to analyze can be looped.
 
