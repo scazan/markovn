@@ -44,7 +44,6 @@ class MarkovN {
   }
 
   createTransitionMatrix(input, order): Array< Array<number> > {
-    // TODO: Probably should de-dupe this here
     this.dictionary = Array.from(new Set(input));
 
     // Compute all possible combinations of the dictionary

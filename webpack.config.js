@@ -2,6 +2,7 @@
 const path = require('path');
 
 const clientConfig = {
+  mode: 'production',
   watch: false,
   entry: './src/Markov.ts',
   output: {
