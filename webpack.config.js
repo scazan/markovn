@@ -4,7 +4,7 @@ const path = require('path');
 const clientConfig = {
   mode: 'production',
   watch: false,
-  entry: './src/Markov.ts',
+  entry: './src/index.ts',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
