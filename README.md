@@ -15,9 +15,9 @@ This library provides two ways of getting at the data. Both methods assume that 
 Starting with the easiest way, you can import the library, pass it a source/reference set of items, and the order of the markov chain, then use it as a generator function to get results:
 
 ```
-const MarkovN = require('markovn');
+import { MarkovN, utils } from 'markovn';
 // Or if we are in Node
-const MarkovN = require('markovn').default;
+const MarkovN = require('markovn').MarkovN;
 
 ```
 Passing in the source/reference to analyze, and the order:
