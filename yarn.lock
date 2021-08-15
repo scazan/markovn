@@ -1044,11 +1044,6 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markovn@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/markovn/-/markovn-2.0.0.tgz#24d00c848878f16b84a9ba4264ac1b6a9ac008fe"
-  integrity sha512-85FOe0q+yi14nNFDi75iz16n/cfoQ1OyOvHTInJAJVj139+Llt19VtViHDr+Cc/ILA6p/0T3x88c44I/TYq7Jg==
-
 memory-fs@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/memory-fs/-/memory-fs-0.5.0.tgz#324c01288b88652966d161db77838720845a8e3c"
