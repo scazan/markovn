@@ -6,7 +6,7 @@ export const getAllTransitions = (input: any[], order: number) => {
     const state = [];
 
     for(let offset = order; offset >= 0; offset--) {
-      state.push( input[mod(index-offset, input.length)]);
+      state.push( input[mod(index-offset, input.length)] );
     }
 
     accum.push(state);
@@ -75,11 +75,11 @@ class MarkovN {
 
       // We are assuming a wrapping input
       let nextState = input[(i+1) % input.length];
-      let dictionaryIndexOfNextState = this.dictionary.indexOf(nextState);
+      let dictionaryIndexOfNextState = this.dictionary
+        .findIndex(item => isEquivalent(nextState, item));
 
       // increment the amount of times this transition has occurred (to be normalized later)
       transitionMatrix[indexOfCurrentState][dictionaryIndexOfNextState]++;
-
     }
 
     transitionMatrix = transitionMatrix.map( normalize );
@@ -91,7 +91,8 @@ class MarkovN {
   getNextState(state: any): any {
     const transitionMatrix: Array< Array<number> > = this.transitionMatrix;
 
-    const indexOfCurrentState: number = this.combinations.findIndex( item => isEquivalent(state, item) );
+    const indexOfCurrentState: number = this.combinations
+      .findIndex( item => isEquivalent(state, item) );
 
     const probabilities: number[] = transitionMatrix[indexOfCurrentState];
 

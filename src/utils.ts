@@ -71,8 +71,31 @@ export const normalize = (coll: number[]): number[] => {
   return collSum > 0 ? coll.map( (weight) => weight / collSum) : coll.map(() => 0);
 };
 
-// http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
 export const isEquivalent = (a, b): boolean => {
+  if (Array.isArray(a) && Array.isArray(b)) {
+    let passedTests = 0;
+
+    a.forEach( (item, i) => {
+      if (compareObjects(item, b[i])) {
+        passedTests += 1;
+      }
+    });
+
+    if (passedTests === a.length) {
+      return true;
+    }
+
+    return false;
+  }
+  else if (Array.isArray(a) && !Array.isArray(b) || (!Array.isArray(a) && Array.isArray(b))) {
+    return false;
+  }
+
+  return compareObjects(a, b);
+};
+
+// http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
+const compareObjects = (a, b): boolean => {
   // Create arrays of property names
   var aProps = Object.getOwnPropertyNames(a);
   var bProps = Object.getOwnPropertyNames(b);
