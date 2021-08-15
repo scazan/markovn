@@ -107,7 +107,6 @@ const pattern = markovChain.asPattern({freq:-2, duration: 3}, {freq: 10, duratio
 
 ```
 import { MarkovN } from 'markovn';
-
 ```
 Passing in the source/reference to analyze, the order:
 ```
