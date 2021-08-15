@@ -5,7 +5,8 @@
     "target": "es6",
     "allowJs": true,
     "module": "es2015",
-    "sourceMap": true
+    "sourceMap": true,
+    "declaration": true
   },
   "include": [
     "./src/**/*"
