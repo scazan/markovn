@@ -94,30 +94,36 @@ export const isEquivalent = (a, b): boolean => {
   return compareObjects(a, b);
 };
 
-// http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
-const compareObjects = (a, b): boolean => {
-  // Create arrays of property names
-  var aProps = Object.getOwnPropertyNames(a);
-  var bProps = Object.getOwnPropertyNames(b);
+const compareObjects = (a, b) => {
+  if (a === b) {
+    return true;
+  }
 
-  // If number of properties is different,
-  // objects are not equivalent
-  if (aProps.length != bProps.length) {
+  if (typeof a != 'object' || typeof b != 'object' || a == null || b == null) {
     return false;
   }
 
-  for (var i = 0; i < aProps.length; i++) {
-    var propName = aProps[i];
+  let keysA = Object.keys(a), keysB = Object.keys(b);
 
-    // If values of same property are not equal,
-    // objects are not equivalent
-    if (a[propName] !== b[propName]) {
+  if (keysA.length != keysB.length) {
+    return false;
+  }
+
+  for (let key of keysA) {
+    if (!keysB.includes(key)) {
       return false;
+    }
+
+    if (typeof a[key] === 'function' || typeof b[key] === 'function') {
+      if (a[key].toString() != b[key].toString()) {
+        return false;
+      }
+    }
+    else {
+      if (!compareObjects(a[key], b[key])) return false;
     }
   }
 
-  // If we made it this far, objects
-  // are considered equivalent
   return true;
 };
 
