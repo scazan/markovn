@@ -44,7 +44,22 @@ class MarkovN {
   }
 
   createTransitionMatrix(input, order): Array< Array<number> > {
-    this.dictionary = Array.from(new Set(input));
+    // this.dictionary = Array.from(new Set(input)); // does not work for objects 
+    this.dictionary = input
+      .reduce((accum: any, item: any) => {
+        let exists = false;
+        accum.forEach((item2: any) => {
+          if (isEquivalent(item2, item)) {
+            exists = true;
+          }
+        });
+
+        if (!exists) {
+          accum.push(item);
+        }
+
+        return accum;
+      }, []);
 
     // Compute all possible combinations of the dictionary
     this.combinations = getAllTransitions(input, order);
@@ -66,12 +81,12 @@ class MarkovN {
       let currentState = [];
 
       for(let offset = order; offset >= 0; offset--) {
-        currentState.push( input[mod(i-offset, input.length)]);
+        currentState.push(input[mod(i-offset, input.length)]);
       }
 
-      let indexOfCurrentState = this.combinations.findIndex( (item) => {
-        return isEquivalent(currentState, item);
-      });
+      // index of currentState in the combinations array
+      let indexOfCurrentState = this.combinations
+        .findIndex((item) => isEquivalent(currentState, item));
 
       // We are assuming a wrapping input
       let nextState = input[(i+1) % input.length];
