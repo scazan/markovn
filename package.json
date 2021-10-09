@@ -1,6 +1,6 @@
 {
   "name": "markovn",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A Markov Chain library for Nth-order markov chains that also supports generators/streams.",
   "main": "build/index.js",
   "scripts": {
